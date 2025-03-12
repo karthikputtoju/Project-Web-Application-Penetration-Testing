@@ -8,7 +8,7 @@ This project demonstrates a full Web Application Penetration Testing workflow by
 ## 🚀 Steps to Follow
 
 ### 🔹 Step 1: Deploy a Vulnerable Web Application
-We deploy **DVWA (Damn Vulnerable Web App)** or **OWASP Juice Shop** on an **AWS EC2 instance**.
+We deploy **DVWA (Damn Vulnerable Web App)** and **OWASP Juice Shop** on an **AWS EC2 instance**.
 
 #### 🛠 Prerequisites
 - AWS Account / Azure Subscription
@@ -129,6 +129,7 @@ Pull requests are welcome! If you find any improvements or issues, feel free to 
 
 ## 📜 License
 This project is licensed under the **MIT License**.
+This project is for educational purposes only. Do not use it for unethical hacking.
 
 ## 📬 Contact
 For queries, reach out via **GitHub Issues** or **email**.
