@@ -24,20 +24,20 @@ Follow the folder setup file to deploy **DVWA** or **Juice Shop** on an AWS EC2 
 
 ---
 
-# Project Overview
+## Project Overview
 
-## 🎯 Objectives
+### 🎯 Objectives
 1. **Understand Web Application Security Risks**
 2. **Perform Black-Box & Gray-Box Penetration Testing**
 3. **Exploit vulnerabilities & document findings**
 4. **Propose remediation strategies**
 
-## 📌 Scope of Testing
+### 📌 Scope of Testing
 - **Target Applications**: DVWA / OWASP Juice Shop
 - **Testing Methodology**: OWASP Testing Guide
 - **Techniques Used**: SQL Injection, XSS, CSRF, IDOR, Authentication Bypass, and more.
 
-## 🛡️ Tools Used
+### 🛡️ Tools Used
 - **Nmap** (Network scanning)
 - **Nikto** (Web vulnerability scanner)
 - **Burp Suite** (Intercepting proxy)
