@@ -7,115 +7,50 @@ This project demonstrates a full Web Application Penetration Testing workflow by
 
 ## 🚀 Steps to Follow
 
-### 🔹 Step 1: Deploy a Vulnerable Web Application
-We deploy **DVWA (Damn Vulnerable Web App)** and **OWASP Juice Shop** on an **AWS EC2 instance**.
-
 #### 🛠 Prerequisites
 - AWS Account / Azure Subscription
 - Linux-based VM (Ubuntu recommended)
 - Basic Linux command-line knowledge
 
-#### 🏗 Option 1: Deploy DVWA on AWS EC2
-```bash
-# Connect to EC2 instance
-ssh -i your-key.pem ubuntu@your-ec2-public-ip
+### 🏗 Project 1: Deploy DVWA 
+### 🏗 Project 2: Deploy OWASP Juice Shop
 
-# Update system & install dependencies
-sudo apt update && sudo apt install -y apache2 mariadb-server php php-mysql unzip git
-
-# Download & configure DVWA
-cd /var/www/html
-sudo git clone https://github.com/digininja/DVWA.git
-sudo chown -R www-data:www-data DVWA
-
-# Set up MySQL for DVWA
-sudo mysql -u root -e "CREATE DATABASE dvwa;"
-sudo mysql -u root -e "CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'password';"
-sudo mysql -u root -e "GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';"
-sudo mysql -u root -e "FLUSH PRIVILEGES;"
-
-# Restart Apache
-sudo systemctl restart apache2
-```
-Access **DVWA** at: `http://your-ec2-public-ip/DVWA/`
-
-#### 🏗 Option 2: Deploy OWASP Juice Shop
-```bash
-sudo apt install -y docker.io
-sudo docker run -d -p 3000:3000 bkimminich/juice-shop
-```
-Access **Juice Shop** at: `http://your-ec2-public-ip:3000`
+This repository contains a **complete penetration testing** project for **DVWA / Juice Shop**, including reconnaissance, vulnerability exploitation, mitigation strategies, and professional reporting.
 
 ---
 
-### 🔹 Step 2: Reconnaissance & Scanning
-
-#### 🔍 Tools Required
-- **Nmap** (Port Scanning & Service Discovery)
-- **Nikto** (Web Server Vulnerability Scanning)
-- **WhatWeb** (Web Technology Fingerprinting)
-
-#### 📌 Run Nmap for Port Scanning
-```bash
-nmap -sV -A your-ec2-public-ip
-```
-Find open ports, web server details, and outdated software versions.
-
-#### 📌 Scan for Vulnerabilities with Nikto
-```bash
-nikto -h http://your-ec2-public-ip/DVWA/
-```
-Identifies security flaws like **default credentials**, **XSS**, and **SQL Injection**.
-
-#### 📌 Fingerprint Technologies with WhatWeb
-```bash
-whatweb http://your-ec2-public-ip/DVWA/
-```
-Identifies CMS, frameworks, and server details for targeting vulnerabilities.
+## 🛠️ Project Setup  
+Follow the folder setup file to deploy **DVWA** or **Juice Shop** on an AWS EC2 instance.
 
 ---
 
-### 🔹 Step 3: Exploiting Vulnerabilities
+# Project Overview
 
-#### 💉 SQL Injection (SQLi) with SQLmap
-```bash
-sqlmap -u "http://your-ec2-public-ip/DVWA/vulnerabilities/sqli/?id=1" --dbs --batch
-```
-Extracts **database names, tables, and credentials**.
+## 🎯 Objectives
+1. **Understand Web Application Security Risks**
+2. **Perform Black-Box & Gray-Box Penetration Testing**
+3. **Exploit vulnerabilities & document findings**
+4. **Propose remediation strategies**
 
-#### 🛑 Cross-Site Scripting (XSS) with Burp Suite
-```html
-<script>alert('XSS Found')</script>
-```
-If the alert pops up, XSS is successful.
+## 📌 Scope of Testing
+- **Target Applications**: DVWA / OWASP Juice Shop
+- **Testing Methodology**: OWASP Testing Guide
+- **Techniques Used**: SQL Injection, XSS, CSRF, IDOR, Authentication Bypass, and more.
 
-#### 🔓 Cross-Site Request Forgery (CSRF)
-```html
-<form action="http://your-ec2-public-ip/DVWA/vulnerabilities/csrf/" method="POST">
-  <input type="hidden" name="password_new" value="hacked123">
-  <input type="hidden" name="password_conf" value="hacked123">
-  <input type="submit" value="Click Here">
-</form>
-```
-Tricks a logged-in user into **changing their password** without consent.
-
-#### 🏴‍☠️ Session Hijacking (Authentication Exploit)
-```bash
-curl -b "PHPSESSID=abcd1234" http://your-ec2-public-ip/DVWA/
-```
-If successful, an attacker can log in without credentials.
+## 🛡️ Tools Used
+- **Nmap** (Network scanning)
+- **Nikto** (Web vulnerability scanner)
+- **Burp Suite** (Intercepting proxy)
+- **SQLmap** (Automated SQL injection)
+- **Metasploit** (Exploitation framework)
+- **Zap Proxy** (OWASP security scanner)
+- **Dirb** (Directory brute-forcing)
+- **Gobuster** (Web content enumeration)
 
 ---
 
-### 🔹 Step 4: Reporting & Mitigation
-
-📋 **Penetration Testing Report** using Dradis/OpenVAS
-
-✅ **Mitigation Recommendations:**
-- **SQL Injection** → Use prepared statements.
-- **XSS** → Implement input sanitization & Content Security Policy (CSP).
-- **CSRF** → Enforce CSRF tokens.
-- **Session Hijacking** → Enable Secure Cookies & HttpOnly Flag.
+## 📷 Screenshots  
+Visit the folder for evidence of attacks and scan results.
 
 ---
 
@@ -128,8 +63,9 @@ If successful, an attacker can log in without credentials.
 Pull requests are welcome! If you find any improvements or issues, feel free to submit them.
 
 ## 📜 License
-This project is licensed under the **MIT License**.
-This project is for educational purposes only. Do not use it for unethical hacking.
+This project is licensed under the **MIT License**. 
+
+This project is for **educational and ethical hacking purposes only**. Unauthorized penetration testing is **illegal**.
 
 ## 📬 Contact
 For queries, reach out via **GitHub Issues** or **email**.
